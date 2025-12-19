@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>For My Love 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+  overflow:hidden;
+  font-family:'Quicksand',sans-serif;
+}
+
+/* BACKGROUND */
+.bg-love,.star{
+  position:absolute;
+}
+.bg-love{
+  font-size:22px;
+  animation:float 8s linear infinite;
+}
+.star{
+  width:4px;height:4px;
+  background:white;border-radius:50%;
+  animation:twinkle 2s infinite;
+}
+@keyframes float{
+  from{transform:translateY(100vh);opacity:0}
+  to{transform:translateY(-10vh);opacity:1}
+}
+@keyframes twinkle{
+  0%,100%{opacity:.2}
+  50%{opacity:1}
+}
+
+/* CARD */
+.card{
+  width:90%;
+  max-width:420px;
+  background:linear-gradient(145deg,#fff0f7,#ffe1ee);
+  border-radius:30px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  animation:pop .6s ease;
+}
+@keyframes pop{
+  from{transform:scale(.8);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+.hidden{display:none}
+
+h1,h2{
+  font-family:'Pacifico',cursive;
+  color:#ff4f8b;
+}
+
+/* BUTTON */
+button{
+  margin:10px;
+  padding:12px 26px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(135deg,#ff4f8b,#ff85b3);
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,.2);
+  animation:floatBtn 2.5s infinite;
+}
+@keyframes floatBtn{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+button:hover{transform:scale(1.1)}
+
+input{
+  width:100%;
+  padding:10px;
+  border-radius:20px;
+  border:1px solid #ffb6d1;
+  margin:8px 0;
+  text-align:center;
+}
+
+/* KADO */
+.gift{
+  font-size:120px;
+  animation:shake 0.4s;
+}
+@keyframes shake{
+  0%{transform:rotate(0)}
+  25%{transform:rotate(-6deg)}
+  50%{transform:rotate(6deg)}
+  75%{transform:rotate(-6deg)}
+  100%{transform:rotate(0)}
+}
+
+/* LOVE */
+.loves{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:10px;
+}
+.love{
+  font-size:32px;
+  cursor:pointer;
+  animation:pulse 1s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.3)}
+}
+.pop{
+  animation:popLove .5s forwards;
+}
+@keyframes popLove{
+  to{transform:scale(2);opacity:0}
+}
+
+/* SURAT */
+.letter{
+  font-size:90px;
+  cursor:pointer;
+}
+.paper{
+  background:linear-gradient(145deg,#fff,#ffe6f0);
+  border-radius:20px;
+  padding:20px;
+  margin-top:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+</style>
+</head>
+<body>
+
+<script>
+for(let i=0;i<25;i++){
+  let l=document.createElement('div');
+  l.className='bg-love';
+  l.innerHTML='💖';
+  l.style.left=Math.random()*100+'vw';
+  l.style.animationDelay=Math.random()*5+'s';
+  document.body.appendChild(l);
+
+  let s=document.createElement('div');
+  s.className='star';
+  s.style.left=Math.random()*100+'vw';
+  s.style.top=Math.random()*100+'vh';
+  document.body.appendChild(s);
+}
+</script>
+
+<!-- STEP 1 -->
+<div class="card" id="s1">
+<h1>Happy Anniversary 💕</h1>
+<button onclick="next(1)">Mulai</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="card hidden" id="s2">
+<h2>Sign In 💌</h2>
+<input id="nama" placeholder="Nama">
+<input id="pw" placeholder="Password (25-12-22)">
+<button onclick="login()">Masuk</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="card hidden" id="s3">
+<h2>Pecahin Loveya 💖</h2>
+<div class="gift" id="gift">🎁</div>
+<div class="loves">
+  <div class="love" onclick="pecah(this)">❤️</div>
+  <div class="love" onclick="pecah(this)">❤️</div>
+  <div class="love" onclick="pecah(this)">❤️</div>
+</div>
+</div>
+
+<!-- STEP 4 -->
+<div class="card hidden" id="s4">
+<h2>Ada Surat Buat Kamu 💌</h2>
+<div class="letter" onclick="next(4)">✉️</div>
+<p>Klik suratnya yaa</p>
+</div>
+
+<!-- STEP 5 -->
+<div class="card hidden" id="s5">
+<h2>Untuk Kamu 💖</h2>
+<div class="paper">
+  <!-- ✨ ISI SURAT KAMU DI SINI ✨ -->
+  Haiiiii Cayankkkkkk🤗🤗
+Tidaa terasa yaaa kita sudaa sejauh ini, banyak cekalii halang rintang yang harus dilewati ngga hanya 1/2 tapi sudaa beribu ribu pulau yang suda kita tempati dan lalui. Semua ngga berjalan seperti apa yang kita mau, tapi itulah yang bikin kita bisa berdiri sampai sejauh ini selalu sama sama mau untuk menjadi yang terbaik, mau belajar biar bisa kasih apa yang yang pantas untuk dituangkan. Akuuu minta maaff🥺🥺 belum bisa jadi yang terbaik untuk kamuu, belum bisa bikin kamuu selalu bahagia setiap hari.
+HAPPYYY ANNIVERSARY YAAA SAYANGGGGGG❤‍🔥❤‍🔥❤‍🔥💗
+ATAPUUUUUUUU BANYAKKKK BANYAKKKK CANTIKKKKKKKKKK❤‍🔥❤‍🔥❤‍🔥
+</div>
+<button onclick="next(5)">Lanjut ya sayang</button>
+</div>
+
+<!-- STEP 6 -->
+<div class="card hidden" id="s6">
+<h2>Mau kadoo tidaaa 😆</h2>
+<button onclick="alert('Ditunggu saja yaa 😝')">Iyaa</button>
+<button onclick="next(6)">Lanjut</button>
+</div>
+
+<!-- STEP 7 -->
+<div class="card hidden" id="s7">
+<h1>Happy Anniversary 3 Tahun 💕💖💕</h1>
+<h2>I LOVEEEE YOUUUU 💕💕💕</h2>
+</div>
+
+<script>
+let count=0;
+
+function next(n){
+  document.getElementById('s'+n).classList.add('hidden');
+  document.getElementById('s'+(n+1)).classList.remove('hidden');
+}
+
+function login(){
+  if(nama.value.toLowerCase()==='asti ananda' && pw.value==='25-12-22'){
+    next(2);
+  } else {
+    alert('Salah sayang 😝');
+  }
+}
+
+function pecah(el){
+  el.classList.add('pop');
+  el.onclick=null;
+  count++;
+  document.getElementById('gift').style.animation='shake .4s';
+  if(count>=3){
+    setTimeout(()=>next(3),600);
+  }
+}
+</script>
+
+</body>
+</html>
